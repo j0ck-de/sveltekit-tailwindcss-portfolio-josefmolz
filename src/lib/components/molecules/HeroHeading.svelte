@@ -4,11 +4,11 @@
 </script>
 
 <div class="hero-heading">
-	<Heading size="big" text="Hi" uppercase />
+	<Heading textColor="primary" size="big" text="Hi" uppercase />
 	<div>
-		<Heading size="medium" text="Ich" />
-		<Heading size="medium" text="bin" />
-		<Heading size="medium" text="Jock" />
+		<Heading full bgColor="teritary" textColor="primary" size="medium" text="Ich" />
+		<Heading full bgColor="brand" textColor="secondary" size="medium" text="bin" />
+		<Heading full bgColor="primary" textColor="brand" size="medium" text="Jock" />
 	</div>
 	<div>
 		<Heading size="extra-small" text="Front-End Webentwickler" />
@@ -25,10 +25,12 @@
 
 <style>
 	.hero-heading {
-		@apply my-medium flex flex-col gap-y-extra-small text-center;
+		@apply my-medium flex shrink flex-col gap-y-extra-small text-center;
+		@apply xl:flex-1;
 	}
 
 	.hero-heading__text {
 		@apply mt-extra-small;
+		@apply xl:px-large;
 	}
 </style>

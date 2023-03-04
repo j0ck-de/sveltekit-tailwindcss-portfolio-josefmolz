@@ -1,7 +1,7 @@
 <script>
 	import Heading from '../atoms/Heading.svelte';
 	import Paragraph from '../atoms/Paragraph.svelte';
-	import Icon from '../atoms/Icon.svelte';
+	import IconGroup from './IconGroup.svelte';
 
 	const skills = [
 		{
@@ -140,50 +140,68 @@
 
 {#each skills as skill}
 	<div class="card">
-		<Heading size="small" text={skill.title} />
-		<Paragraph>
-			{skill.text}
-		</Paragraph>
-		<hr />
-		<Heading size="extra-small" text="Advanced" />
-		<div class="card__icons">
-			{#each skill.icons.advanced as icon}
-				<a href={icon.url} class="card__icon">
-					<Icon icon={icon.src} />
-					<span>{icon.name}</span>
-				</a>
-			{/each}
+		<div class="card__header">
+			<Heading size="small" text={skill.title} />
+			<Paragraph>
+				{skill.text}
+			</Paragraph>
 		</div>
-		<hr />
-		<Heading size="extra-small" text="Basic" />
-		<div class="card__icons">
-			{#each skill.icons.basic as icon}
-				<a href={icon.url} class="card__icon">
-					<Icon icon={icon.src} />
-					<span>{icon.name}</span>
-				</a>
-			{/each}
+		<div class="card__skills-container">
+			<div>
+				<hr class="card__divider" />
+				<Heading size="extra-small" text="Advanced" />
+				<div class="card__icons">
+					{#each skill.icons.advanced as icon}
+						<div class="card__icon">
+							<IconGroup url={icon.url} src={icon.src} name={icon.name} />
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<div>
+				<hr class="card__divider" />
+				<Heading size="extra-small" text="Basic" />
+				<div class="card__icons">
+					{#each skill.icons.basic as icon}
+						<div class="card__icon">
+							<IconGroup url={icon.url} src={icon.src} name={icon.name} />
+						</div>
+					{/each}
+				</div>
+			</div>
 		</div>
 	</div>
 {/each}
 
 <style>
 	.card {
-		@apply flex flex-col gap-y-small bg-brand py-small text-primary;
+		@apply flex flex-1 flex-col rounded-lg bg-brand py-small text-secondary shadow-sm;
+	}
+
+	.card__header {
+		@apply flex flex-col gap-y-small;
+	}
+
+	.card__skills-container {
+		@apply flex flex-col justify-center gap-x-small;
+		@apply md:flex-row;
+		@apply lg:flex-col;
+	}
+
+	.card__skills-container > div {
+		@apply flex-1;
 	}
 
 	.card__icons {
-		@apply flex flex-row flex-wrap justify-center gap-y-extra-small gap-x-small;
+		@apply mt-small flex flex-row flex-wrap justify-center gap-y-small gap-x-small px-small;
 	}
 
 	.card__icon {
 		@apply flex flex-col items-center;
 	}
-	.card__icon span {
-		@apply text-heading-extra-small;
-	}
 
-	hr {
-		@apply my-extra-small mx-auto w-4/5 border-0 border-b-2 border-gray-900;
+	.card__divider {
+		@apply mx-auto my-small w-4/5 border-0 border-b-2 border-gray-900;
 	}
 </style>

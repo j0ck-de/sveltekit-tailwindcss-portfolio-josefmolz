@@ -1,22 +1,39 @@
 <script>
 	import Heading from '../atoms/Heading.svelte';
-	import Paragraph from '../atoms/Paragraph.svelte';
+	import Image from '../atoms/Image.svelte';
 	import Video from '../atoms/Video.svelte';
+	import List from '../molecules/List.svelte';
+
+	const aboutDescriptionList = [
+		{
+			title: 'Frontend-Entwickler',
+			text: 'Leidenschaftlicher Frontend-Entwickler mit Fokus auf UI-Effekte und der Erstellung dynamischer Benutzererfahrungen.'
+		},
+		{
+			title: 'Gut organisierter Mensch',
+			text: 'Effektiver und gut organisierter Webentwickler mit fundiertem Wissen in BEM, ATOMIC Design, 7.1 Architecture und Best Practices.'
+		},
+		{
+			title: 'Problemlöser',
+			text: 'Kompetenter Problemlöser mit umfassendem Verständnis von Code und der Fähigkeit, ihn zu optimieren und zu verbessern.'
+		},
+		{
+			title: 'Privat',
+			text: 'In der Freizeit ein aktiver und enthusiastischer Outdoor-Sportler, Musiker und Familienmensch.'
+		}
+	];
 </script>
 
-<div class="about-description">
+<div class="about-description" id="about">
 	<div class="about-description__heading">
 		<Heading size="big" text="Ich" uppercase />
 		<Heading size="big" text="bin" uppercase />
 	</div>
 	<div class="about-description__text">
-		<Paragraph>
-			... ein Marketingspezialist, Tech-Nerd und Front-End-Entwickler aus Niederbayern. Ich habe
-			eine große Leidenschaft für UI-Effekte und die Erstellung intuitiver, dynamischer
-			Benutzererfahrungen. Gut organisierter Mensch und Problemlöser mit viel Liebe zum Detail. Fan
-			von Outdoor-Aktivitäten, Sport, und Gitarre. Familienmensch. Interesse am gesamten
-			Frontend-Spektrum und an der Arbeit an anspruchsvollen Projekten mit positiven Menschen.
-		</Paragraph>
+		<List items={aboutDescriptionList} />
+	</div>
+	<div class="about-description__image">
+		<Image src="/img1.png" />
 	</div>
 	<div class="about-description__video">
 		<Video />
@@ -25,18 +42,27 @@
 
 <style>
 	.about-description {
-		@apply flex flex-col gap-y-small py-medium;
+		@apply flex flex-col;
+		@apply xl:grid xl:grid-cols-2;
 	}
 
 	.about-description__heading {
-		@apply flex flex-row flex-wrap justify-center;
+		@apply my-medium flex flex-row flex-wrap justify-center;
+		@apply xl:col-span-1 xl:row-start-1;
+	}
+
+	.about-description__image {
+		@apply hidden;
+		@apply xl:col-start-2 xl:row-span-2 xl:block xl:h-full;
 	}
 
 	.about-description__video {
 		@apply block;
+		@apply aspect-video xl:col-span-2;
 	}
 
 	.about-description__text {
-		@apply block;
+		@apply mb-small block px-small;
+		@apply xl:col-span-1 xl:row-start-2;
 	}
 </style>

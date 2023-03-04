@@ -4,8 +4,8 @@
 	import SkillsCard from './SkillsCard.svelte';
 </script>
 
-<div class="about-tech">
-	<Heading size="medium" text="Tech I Use" />
+<div class="about-tech" id="tech">
+	<Heading half bgColor="brand" textColor="secondary" size="medium" text="Tech I Use" />
 	<Paragraph
 		>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero odit veniam reprehenderit
 		voluptatum similique! Voluptatem maxime alias praesentium repellat fugit?</Paragraph

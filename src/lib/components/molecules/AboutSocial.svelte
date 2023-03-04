@@ -5,13 +5,24 @@
 </script>
 
 <div class="about-social">
-	<Heading size="big" text="Jock" />
+	<div class="about-social__heading">
+		<Heading size="big" text="Jock" textColor="brand" />
+	</div>
+
 	<SocialsBand />
-	<Image src="astro-1.png" />
+	<div class="about-social__image">
+		<Image src="astro-1.png" />
+	</div>
 </div>
 
 <style>
 	.about-social {
-		@apply flex flex-col gap-y-small  py-medium;
+		@apply flex flex-col;
+	}
+	.about-social__heading {
+		@apply py-medium;
+	}
+	.about-social__image {
+		@apply mx-auto flex items-center justify-center;
 	}
 </style>

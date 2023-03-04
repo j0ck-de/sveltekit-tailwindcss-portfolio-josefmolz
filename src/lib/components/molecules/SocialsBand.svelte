@@ -1,5 +1,5 @@
 <script>
-	import Icon from '../atoms/Icon.svelte';
+	import IconGroup from './IconGroup.svelte';
 
 	const socials = [
 		{
@@ -23,18 +23,17 @@
 <div class="socials-band">
 	{#each socials as social}
 		<div class="socials-band__item">
-			<Icon icon={social.src} />
-			<span>{social.name}</span>
+			<IconGroup url={social.url} name={social.name} src={social.src} />
 		</div>
 	{/each}
 </div>
 
 <style>
 	.socials-band {
-		@apply flex flex-row gap-x-small bg-secondary text-primary;
+		@apply flex flex-row justify-center gap-x-small bg-secondary text-primary;
 	}
 
 	.socials-band__item {
-		@apply flex items-center justify-center;
+		@apply flex flex-col items-center justify-center gap-y-extra-small py-extra-small;
 	}
 </style>

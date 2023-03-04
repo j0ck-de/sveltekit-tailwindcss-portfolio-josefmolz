@@ -2,10 +2,10 @@
 	export let src;
 </script>
 
-<img {src} alt="" />
+<img {src} class="image" alt="" />
 
 <style>
-	img {
+	.image {
 		@apply block h-full w-full object-cover;
 	}
 </style>
